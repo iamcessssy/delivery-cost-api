@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "131a9bef-e0d2-4352-a897-d97c6b05093e",
+		"name": "delivery-cost-api",
+		"description": "To calculate the cost of delivery of a parcel using the API, you need to make a 'POST' request to the '/api/delivery-cost/calculate' endpoint with a JSON payload that includes the weight, height, width, length and voucherCode (if applicable) details of the Parcel.\n\nHere are a few example test cases you can use to test different scenarios:\n\n1. Valid Small Parcel. JSON payload: { \"weight\": 2, \"height\": 10, \"width\": 10, \"length\": 10, \"voucherCode\": \"MYNT\" }\n    \n    Expected Response: Should return the calculated cost for a small parcel and apply the voucher discount if valid.\n    \n2. Valid Medium Parcel. JSON payload: { \"weight\": 8, \"height\": 20, \"width\": 20, \"length\": 10, \"voucherCode\": \"GFI\" }\n    \n    Expected Response: Should return the calculated cost for a medium parcel.\n    \n3. Weight Exceeds Limit. JSON payload: { \"weight\": 55, \"height\": 30, \"width\": 30, \"length\": 30, \"voucherCode\": \"\" } Expected Response: Should return an error message stating that the parcel weight exceeds the limit of 50kg.\n    \n4. Invalid Parcel Data. JSON payload: { \"weight\": -5, \"height\": 10, \"width\": 10, \"length\": 10, \"voucherCode\": \"MYNT\" }\n    \n    Expected Response: Should return validation error messages for the invalid weight.\n    \n\nLet me know if you need any further assistance!",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "284461"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/delivery-cost/calculate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "     {\n       \"weight\": 5,\n       \"height\": 30,\n       \"width\": 20,\n       \"length\": 15,\n       \"voucherCode\": \"MYNT\"\n     }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/delivery-cost/calculate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"delivery-cost",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Case 1: Valid Small Parcel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n     \"weight\": 2,\n     \"height\": 10,\n     \"width\": 10,\n     \"length\": 10,\n     \"voucherCode\": \"MYNT\"\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/delivery-cost/calculate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"delivery-cost",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Case 2: Valid Medium Parcel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n     \"weight\": 8,\n     \"height\": 20,\n     \"width\": 20,\n     \"length\": 10,\n     \"voucherCode\": \"GFI\"\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/delivery-cost/calculate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"delivery-cost",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Case 3: Weight Exceeds Limit",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n     \"weight\": 55,\n     \"height\": 30,\n     \"width\": 30,\n     \"length\": 30,\n     \"voucherCode\": \"\"\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/delivery-cost/calculate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"delivery-cost",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Case 4: Invalid Parcel Data",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "     {\n       \"weight\": -5,\n       \"height\": 10,\n       \"width\": 10,\n       \"length\": 10,\n       \"voucherCode\": \"MYNT\"\n     }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/delivery-cost/calculate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"delivery-cost",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
